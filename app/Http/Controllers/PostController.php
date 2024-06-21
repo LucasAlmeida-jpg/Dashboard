@@ -42,12 +42,10 @@ class PostController extends Controller
         $post->update($incomingFields);
         return redirect('/');
     }
-    public function deletePost(Post $post)
-    {
-        if (Auth::user()->id === $post->user_id) {
+    public function deletePost(Post $post){
+        if(auth()->user()->id === $post['user_id']) {
             $post->delete();
-            return redirect('/')->with('success', 'Post deleted successfully');
         }
-        return redirect('/')->with('error', 'You are not authorized to delete this post');
+        return redirect('/');
     }
 }
