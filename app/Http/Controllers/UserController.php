@@ -29,6 +29,7 @@ class UserController extends Controller
 
         return redirect('/');
     }
+    
     public function register(Request $request){
         $incomingFields = $request->validate([
             'name' => ['required', 'min:3', 'max:40', Rule::unique('users', 'name')],
