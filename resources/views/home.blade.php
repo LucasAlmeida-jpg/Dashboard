@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{-- 48:4 --}}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +8,7 @@
 </head>
 <body>
     @auth
-        <p>Congrats youre logged in</p>
-
+        <p>Congrats youre logged in</p> 
         <form action="/logout" method="post">
         @csrf
         <button>log  out</button>
@@ -34,7 +32,7 @@
         <form action="/delete/post/{{$post->id}}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit">Delete</button>
+            <button>Delete</button>
         </form>
         @endforeach
     </div>

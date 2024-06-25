@@ -20,7 +20,6 @@ class UserController extends Controller
         ]);
         if(auth()->attempt([
             'name' => $incomingFields['loginname'], 'password' => $incomingFields['loginpassword']
-            
         ])) 
         
         $request->session()->regenerate(); {
@@ -29,6 +28,7 @@ class UserController extends Controller
 
         return redirect('/');
     }
+    
     
     public function register(Request $request){
         $incomingFields = $request->validate([
