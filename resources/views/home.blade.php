@@ -14,7 +14,7 @@
         <button>log  out</button>
     </form>
 
-    <div style="border: 1px solid black; padding:30px">
+    {{-- <div style="border: 1px solid black; padding:30px">
         <h2>Create a new post</h2>
         <form action="/create-post" method="post">
             @csrf
@@ -22,20 +22,21 @@
             <textarea name="body" placeholder="escreva seu post..."></textarea>
         <button>save post</button>
         </form>
-    </div>
-    <div style="border: 1px solid black; padding:30px">
-    <h2>All posts</h2>
-    @foreach ($posts as $post)
-        <h3>{{ $post['title'] }}</h3>
-        {{ $post['body'] }}
-        <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
-        <form action="/delete/post/{{$post->id}}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button>Delete</button>
-        </form>
+    </div> --}}
+    {{-- <div style="border: 1px solid black; padding:30px">
+        <h2>All posts</h2>
+        @foreach ($posts as $post)
+            <h3>{{ $post['title'] }}</h3>
+            {{ $post['body'] }}
+            <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
+            <form action="/delete/post/{{$post->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button>Delete</button>
+            </form>
         @endforeach
-    </div>
+    </div> --}}
+
     @else    
     <div style="border: 1px solid black; padding:30px">
         <h1 id="title">Register</h1>
