@@ -10,6 +10,8 @@ class Collaborator extends Model
     use HasFactory;
 
     public function colaboradores(){
-        return $this->hasMany(User::class, 'user_id');
+        return $this->hasMany(User::class);
     }
+
+    
 }

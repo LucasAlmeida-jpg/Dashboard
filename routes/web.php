@@ -1,22 +1,24 @@
 <?php
 
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Models\Collaborator;
 
 Route::get('/', function () {
-    $posts  = [];
-    if(auth()->check()){
+    $posts = [];
+    $collaborators = Collaborator::with('users')->get();
+    
+    if (auth()->check()) {
         $posts = auth()->user()->usersCoolPosts()->latest()->get();
     }
-    return view('home', ['posts' =>  $posts]);
+    
+    return view('home', ['posts' => $posts, 'collaborators' => $collaborators]);
 });
 
+
 Route::post('/register', [UserController::class, 'register']);
-
 Route::post('/logout', [UserController::class, 'logout']);
-
 Route::post('/login', [UserController::class, 'login']);
 
 // Blog post
